@@ -166,7 +166,6 @@
     animation:scroll-left 32s linear infinite;
   }
   .marquee-row.reverse{ animation-name:scroll-right; }
-  .marquee-row:hover{ animation-play-state:paused; }
   @keyframes scroll-left{
     from{ transform:translateX(0); }
     to{ transform:translateX(-50%); }
@@ -188,7 +187,8 @@
     border:1px solid var(--line); background:var(--bg-elev);
     flex:0 0 auto;
   }
-  .moment-card img{ width:100%; height:100%; object-fit:cover; }
+  .moment-card{ cursor:default; }
+  .moment-card img, .moment-card video{ width:100%; height:100%; object-fit:cover; }
   @media (max-width:700px){
     .moment-card{ width:200px; }
   }
@@ -200,6 +200,19 @@
     font-weight:800; letter-spacing:-0.02em;
   }
   .section-head p{ margin-top:14px; color:var(--fg-dim); font-size:1.05rem; }
+  .growth-badge{
+    display:inline-flex; align-items:center; gap:10px;
+    margin-top:20px; padding:8px 16px 8px 8px;
+    border:1px solid var(--line-strong); border-radius:100px;
+    background:var(--bg-elev);
+    font-size:13px; font-weight:600; color:#34d17f;
+  }
+  .growth-spark{ width:60px; height:22px; display:block; }
+  .works-note{
+    margin-top:14px; font-size:12px; color:var(--fg-dim);
+    border:1px dashed var(--line-strong); display:inline-block;
+    padding:6px 14px; border-radius:100px;
+  }
 
   /* ---------- works (big cards) ---------- */
   .works-list{
@@ -232,6 +245,14 @@
     background:rgba(0,0,0,0.55); backdrop-filter:blur(6px);
     padding:4px 10px; border-radius:100px;
   }
+  .work-metric-corner{
+    position:absolute; top:14px; right:14px; z-index:2;
+    display:flex; align-items:center; gap:6px;
+    background:rgba(0,0,0,0.6); backdrop-filter:blur(6px);
+    padding:5px 12px 5px 8px; border-radius:100px;
+    font-size:11px; font-weight:700; color:#34d17f;
+  }
+  .corner-spark{ width:36px; height:14px; display:block; }
   .work-body{ padding:22px 24px 26px; }
   .work-title{ font-size:clamp(1.2rem, 2vw, 1.55rem); font-weight:700; letter-spacing:-0.01em; }
   .work-stats{
@@ -248,16 +269,16 @@
     .works-list{ grid-template-columns:1fr; }
   }
 
-  /* ---------- horizontal clips ---------- */
+  /* ---------- vertical expert clips ---------- */
   .clips-grid{
-    display:grid; grid-template-columns:repeat(2, minmax(0,1fr));
-    gap:28px;
+    display:grid; grid-template-columns:repeat(3, minmax(0,1fr));
+    gap:24px;
   }
   .clip-window{
     position:relative; border-radius:20px; overflow:hidden;
     border:1px solid var(--line); background:var(--bg-elev);
   }
-  .clip-video{ display:block; width:100%; aspect-ratio:16/9; object-fit:cover; background:var(--bg-elev); }
+  .clip-video{ display:block; width:100%; aspect-ratio:9/16; object-fit:cover; background:var(--bg-elev); }
   .clip-caption{
     position:absolute; left:14px; bottom:14px;
     font-size:12px; color:var(--fg);
@@ -266,7 +287,8 @@
     border:1px solid var(--line);
     backdrop-filter:blur(6px);
   }
-  @media (max-width:700px){ .clips-grid{ grid-template-columns:1fr; } }
+  @media (max-width:900px){ .clips-grid{ grid-template-columns:repeat(2,1fr); } }
+  @media (max-width:600px){ .clips-grid{ grid-template-columns:1fr; } }
 
   /* ---------- about / profile card ---------- */
   .profile-card{
@@ -410,33 +432,53 @@
 
     <div class="marquee-wrap reveal">
       <div class="marquee-row">
-        <div class="moment-card"><img src="https://i.ytimg.com/vi_webp/lmkVJGTtCeM/sddefault.webp" alt="" loading="lazy"></div>
-        <div class="moment-card"><img src="https://i.ytimg.com/vi_webp/-2cp64pYRdQ/sddefault.webp" alt="" loading="lazy"></div>
-        <div class="moment-card"><img src="https://i.ytimg.com/vi_webp/xzB-I5QhriQ/sddefault.webp" alt="" loading="lazy"></div>
-        <div class="moment-card"><img src="https://i.ytimg.com/vi_webp/oJy9bUwoB9Y/sddefault.webp" alt="" loading="lazy"></div>
-        <div class="moment-card"><img src="https://i.ytimg.com/vi_webp/Idz0_8JzSoc/sddefault.webp" alt="" loading="lazy"></div>
+        <div class="moment-card"><video class="moment-video" src="videos/moment-1.mp4" muted loop autoplay playsinline preload="metadata"></video></div>
+        <div class="moment-card"><video class="moment-video" src="videos/moment-2.mp4" muted loop autoplay playsinline preload="metadata"></video></div>
+        <div class="moment-card"><video class="moment-video" src="videos/moment-3.mp4" muted loop autoplay playsinline preload="metadata"></video></div>
+        <div class="moment-card"><video class="moment-video" src="videos/moment-4.mp4" muted loop autoplay playsinline preload="metadata"></video></div>
+        <div class="moment-card"><video class="moment-video" src="videos/moment-5.mp4" muted loop autoplay playsinline preload="metadata"></video></div>
+        <div class="moment-card"><video class="moment-video" src="videos/moment-6.mp4" muted loop autoplay playsinline preload="metadata"></video></div>
+        <div class="moment-card"><video class="moment-video" src="videos/moment-7.mp4" muted loop autoplay playsinline preload="metadata"></video></div>
+        <div class="moment-card"><video class="moment-video" src="videos/moment-8.mp4" muted loop autoplay playsinline preload="metadata"></video></div>
+        <div class="moment-card"><video class="moment-video" src="videos/moment-9.mp4" muted loop autoplay playsinline preload="metadata"></video></div>
+        <div class="moment-card"><video class="moment-video" src="videos/moment-10.mp4" muted loop autoplay playsinline preload="metadata"></video></div>
         <!-- duplicate set for seamless loop -->
-        <div class="moment-card"><img src="https://i.ytimg.com/vi_webp/lmkVJGTtCeM/sddefault.webp" alt="" loading="lazy"></div>
-        <div class="moment-card"><img src="https://i.ytimg.com/vi_webp/-2cp64pYRdQ/sddefault.webp" alt="" loading="lazy"></div>
-        <div class="moment-card"><img src="https://i.ytimg.com/vi_webp/xzB-I5QhriQ/sddefault.webp" alt="" loading="lazy"></div>
-        <div class="moment-card"><img src="https://i.ytimg.com/vi_webp/oJy9bUwoB9Y/sddefault.webp" alt="" loading="lazy"></div>
-        <div class="moment-card"><img src="https://i.ytimg.com/vi_webp/Idz0_8JzSoc/sddefault.webp" alt="" loading="lazy"></div>
+        <div class="moment-card"><video class="moment-video" src="videos/moment-1.mp4" muted loop autoplay playsinline preload="metadata"></video></div>
+        <div class="moment-card"><video class="moment-video" src="videos/moment-2.mp4" muted loop autoplay playsinline preload="metadata"></video></div>
+        <div class="moment-card"><video class="moment-video" src="videos/moment-3.mp4" muted loop autoplay playsinline preload="metadata"></video></div>
+        <div class="moment-card"><video class="moment-video" src="videos/moment-4.mp4" muted loop autoplay playsinline preload="metadata"></video></div>
+        <div class="moment-card"><video class="moment-video" src="videos/moment-5.mp4" muted loop autoplay playsinline preload="metadata"></video></div>
+        <div class="moment-card"><video class="moment-video" src="videos/moment-6.mp4" muted loop autoplay playsinline preload="metadata"></video></div>
+        <div class="moment-card"><video class="moment-video" src="videos/moment-7.mp4" muted loop autoplay playsinline preload="metadata"></video></div>
+        <div class="moment-card"><video class="moment-video" src="videos/moment-8.mp4" muted loop autoplay playsinline preload="metadata"></video></div>
+        <div class="moment-card"><video class="moment-video" src="videos/moment-9.mp4" muted loop autoplay playsinline preload="metadata"></video></div>
+        <div class="moment-card"><video class="moment-video" src="videos/moment-10.mp4" muted loop autoplay playsinline preload="metadata"></video></div>
       </div>
     </div>
 
     <div class="marquee-wrap reveal">
       <div class="marquee-row reverse">
-        <div class="moment-card"><img src="https://i.ytimg.com/vi_webp/Idz0_8JzSoc/sddefault.webp" alt="" loading="lazy"></div>
-        <div class="moment-card"><img src="https://i.ytimg.com/vi_webp/oJy9bUwoB9Y/sddefault.webp" alt="" loading="lazy"></div>
-        <div class="moment-card"><img src="https://i.ytimg.com/vi_webp/xzB-I5QhriQ/sddefault.webp" alt="" loading="lazy"></div>
-        <div class="moment-card"><img src="https://i.ytimg.com/vi_webp/-2cp64pYRdQ/sddefault.webp" alt="" loading="lazy"></div>
-        <div class="moment-card"><img src="https://i.ytimg.com/vi_webp/lmkVJGTtCeM/sddefault.webp" alt="" loading="lazy"></div>
+        <div class="moment-card"><video class="moment-video" src="videos/moment-10.mp4" muted loop autoplay playsinline preload="metadata"></video></div>
+        <div class="moment-card"><video class="moment-video" src="videos/moment-9.mp4" muted loop autoplay playsinline preload="metadata"></video></div>
+        <div class="moment-card"><video class="moment-video" src="videos/moment-8.mp4" muted loop autoplay playsinline preload="metadata"></video></div>
+        <div class="moment-card"><video class="moment-video" src="videos/moment-7.mp4" muted loop autoplay playsinline preload="metadata"></video></div>
+        <div class="moment-card"><video class="moment-video" src="videos/moment-6.mp4" muted loop autoplay playsinline preload="metadata"></video></div>
+        <div class="moment-card"><video class="moment-video" src="videos/moment-5.mp4" muted loop autoplay playsinline preload="metadata"></video></div>
+        <div class="moment-card"><video class="moment-video" src="videos/moment-4.mp4" muted loop autoplay playsinline preload="metadata"></video></div>
+        <div class="moment-card"><video class="moment-video" src="videos/moment-3.mp4" muted loop autoplay playsinline preload="metadata"></video></div>
+        <div class="moment-card"><video class="moment-video" src="videos/moment-2.mp4" muted loop autoplay playsinline preload="metadata"></video></div>
+        <div class="moment-card"><video class="moment-video" src="videos/moment-1.mp4" muted loop autoplay playsinline preload="metadata"></video></div>
         <!-- duplicate set for seamless loop -->
-        <div class="moment-card"><img src="https://i.ytimg.com/vi_webp/Idz0_8JzSoc/sddefault.webp" alt="" loading="lazy"></div>
-        <div class="moment-card"><img src="https://i.ytimg.com/vi_webp/oJy9bUwoB9Y/sddefault.webp" alt="" loading="lazy"></div>
-        <div class="moment-card"><img src="https://i.ytimg.com/vi_webp/xzB-I5QhriQ/sddefault.webp" alt="" loading="lazy"></div>
-        <div class="moment-card"><img src="https://i.ytimg.com/vi_webp/-2cp64pYRdQ/sddefault.webp" alt="" loading="lazy"></div>
-        <div class="moment-card"><img src="https://i.ytimg.com/vi_webp/lmkVJGTtCeM/sddefault.webp" alt="" loading="lazy"></div>
+        <div class="moment-card"><video class="moment-video" src="videos/moment-10.mp4" muted loop autoplay playsinline preload="metadata"></video></div>
+        <div class="moment-card"><video class="moment-video" src="videos/moment-9.mp4" muted loop autoplay playsinline preload="metadata"></video></div>
+        <div class="moment-card"><video class="moment-video" src="videos/moment-8.mp4" muted loop autoplay playsinline preload="metadata"></video></div>
+        <div class="moment-card"><video class="moment-video" src="videos/moment-7.mp4" muted loop autoplay playsinline preload="metadata"></video></div>
+        <div class="moment-card"><video class="moment-video" src="videos/moment-6.mp4" muted loop autoplay playsinline preload="metadata"></video></div>
+        <div class="moment-card"><video class="moment-video" src="videos/moment-5.mp4" muted loop autoplay playsinline preload="metadata"></video></div>
+        <div class="moment-card"><video class="moment-video" src="videos/moment-4.mp4" muted loop autoplay playsinline preload="metadata"></video></div>
+        <div class="moment-card"><video class="moment-video" src="videos/moment-3.mp4" muted loop autoplay playsinline preload="metadata"></video></div>
+        <div class="moment-card"><video class="moment-video" src="videos/moment-2.mp4" muted loop autoplay playsinline preload="metadata"></video></div>
+        <div class="moment-card"><video class="moment-video" src="videos/moment-1.mp4" muted loop autoplay playsinline preload="metadata"></video></div>
       </div>
     </div>
   </section>
@@ -446,6 +488,7 @@
     <div class="section-head reveal">
       <div class="eyebrow" style="text-align:center;">2025 · 2026</div>
       <h2>My works</h2>
+      <p class="works-note">Add your own views &amp; likes count to each card below.</p>
     </div>
     <div class="container">
       <div class="works-list reveal">
@@ -459,7 +502,7 @@
             <span class="work-title">Long-form edit</span>
             <span class="work-stats">
               <span class="work-stat"><span class="num">000K</span><span class="lbl">Views</span></span>
-              <span class="work-stat"><span class="num">00:00</span><span class="lbl">Avg. duration</span></span>
+              <span class="work-stat"><span class="num">0.0K</span><span class="lbl">Likes</span></span>
             </span>
             <span class="work-meta">Watch ↗</span>
           </span>
@@ -474,7 +517,7 @@
             <span class="work-title">Long-form edit</span>
             <span class="work-stats">
               <span class="work-stat"><span class="num">000K</span><span class="lbl">Views</span></span>
-              <span class="work-stat"><span class="num">00:00</span><span class="lbl">Avg. duration</span></span>
+              <span class="work-stat"><span class="num">0.0K</span><span class="lbl">Likes</span></span>
             </span>
             <span class="work-meta">Watch ↗</span>
           </span>
@@ -489,7 +532,7 @@
             <span class="work-title">Long-form edit</span>
             <span class="work-stats">
               <span class="work-stat"><span class="num">000K</span><span class="lbl">Views</span></span>
-              <span class="work-stat"><span class="num">00:00</span><span class="lbl">Avg. duration</span></span>
+              <span class="work-stat"><span class="num">0.0K</span><span class="lbl">Likes</span></span>
             </span>
             <span class="work-meta">Watch ↗</span>
           </span>
@@ -504,7 +547,7 @@
             <span class="work-title">Long-form edit</span>
             <span class="work-stats">
               <span class="work-stat"><span class="num">000K</span><span class="lbl">Views</span></span>
-              <span class="work-stat"><span class="num">00:00</span><span class="lbl">Avg. duration</span></span>
+              <span class="work-stat"><span class="num">0.0K</span><span class="lbl">Likes</span></span>
             </span>
             <span class="work-meta">Watch ↗</span>
           </span>
@@ -513,13 +556,19 @@
         <div class="work-row">
           <span class="work-thumb placeholder">
             <span class="work-index">05</span>
+            <span class="work-metric-corner">
+              <svg viewBox="0 0 60 20" class="corner-spark">
+                <polyline points="0,17 8,15 16,16 24,11 32,12 40,7 48,8 56,3" fill="none" stroke="#34d17f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              2.3M views
+            </span>
             reel.mp4<br>replace me
           </span>
           <span class="work-body">
             <span class="work-title">Showreel</span>
             <span class="work-stats">
-              <span class="work-stat"><span class="num">000K</span><span class="lbl">Views</span></span>
-              <span class="work-stat"><span class="num">00:00</span><span class="lbl">Avg. duration</span></span>
+              <span class="work-stat"><span class="num">2.3M</span><span class="lbl">Views</span></span>
+              <span class="work-stat"><span class="num">0.0K</span><span class="lbl">Likes</span></span>
             </span>
             <span class="work-meta">Add file</span>
           </span>
@@ -534,7 +583,7 @@
             <span class="work-title">Long-form edit</span>
             <span class="work-stats">
               <span class="work-stat"><span class="num">000K</span><span class="lbl">Views</span></span>
-              <span class="work-stat"><span class="num">00:00</span><span class="lbl">Avg. duration</span></span>
+              <span class="work-stat"><span class="num">0.0K</span><span class="lbl">Likes</span></span>
             </span>
             <span class="work-meta">Watch ↗</span>
           </span>
@@ -547,18 +596,23 @@
   <!-- HORIZONTAL CLIPS -->
   <section id="clips">
     <div class="section-head reveal">
-      <div class="eyebrow" style="text-align:center;">Muted previews</div>
-      <h2>Vertical clips</h2>
+      <div class="eyebrow" style="text-align:center;">Shorts & Reels</div>
+      <h2>Vertical edits</h2>
+      <p>Portrait-format cuts, muted previews.</p>
     </div>
     <div class="container">
       <div class="clips-grid reveal">
         <div class="clip-window">
-          <video class="clip-video" src="videos/clip-1.mp4" muted loop autoplay playsinline preload="metadata"></video>
-          <div class="clip-caption">Fragment 01</div>
+          <video class="clip-video" src="videos/expert-1.mp4" muted loop autoplay playsinline preload="metadata"></video>
+          <div class="clip-caption">Expert cut 01</div>
         </div>
         <div class="clip-window">
-          <video class="clip-video" src="videos/clip-2.mp4" muted loop autoplay playsinline preload="metadata"></video>
-          <div class="clip-caption">Fragment 02</div>
+          <video class="clip-video" src="videos/expert-2.mp4" muted loop autoplay playsinline preload="metadata"></video>
+          <div class="clip-caption">Expert cut 02</div>
+        </div>
+        <div class="clip-window">
+          <video class="clip-video" src="videos/expert-3.mp4" muted loop autoplay playsinline preload="metadata"></video>
+          <div class="clip-caption">Expert cut 03</div>
         </div>
       </div>
     </div>
