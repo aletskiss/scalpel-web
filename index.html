@@ -316,7 +316,9 @@
     font-size:48px; font-weight:800; color:#fff;
     border:1px solid var(--line-strong);
     box-shadow:0 0 40px rgba(41,151,255,0.3);
+    overflow:hidden;
   }
+  .avatar-circle img{ width:100%; height:100%; object-fit:cover; object-position:center; }
   .profile-name{ font-size:1.6rem; font-weight:800; letter-spacing:-0.01em; }
   .profile-role{ font-size:13px; color:var(--fg-dim); margin-top:4px; }
   .profile-bio{
@@ -344,8 +346,9 @@
   .review-avatar{
     width:48px; height:48px; border-radius:50%;
     background:var(--bg-elev-2); border:1px dashed var(--line-strong);
-    margin-bottom:16px;
+    margin-bottom:16px; overflow:hidden;
   }
+  .review-avatar img{ width:100%; height:100%; object-fit:cover; object-position:center; }
   .review-stars{ color:var(--accent); font-size:15px; letter-spacing:2px; margin-bottom:18px; }
   .review-quote{
     font-size:15px; color:var(--fg); line-height:1.6; font-style:italic;
@@ -422,6 +425,10 @@
       <div>
         <div class="metric-num" data-target="5.9" data-suffix="M">0</div>
         <div class="metric-label">Largest channel reached</div>
+      </div>
+      <div>
+        <div class="metric-num">300+K</div>
+        <div class="metric-label">Likes across all videos</div>
       </div>
     </div>
   </section>
@@ -631,7 +638,8 @@
         <img src="images/badge.png" alt="YouTubeJobs verified badge">
       </div>
       <div class="avatar-circle">
-        <span>S</span>
+        <img src="images/avatar.jpg" alt="Scalpel" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+        <span style="display:none;">S</span>
       </div>
       <div class="profile-name">Scalpel</div>
       <div class="profile-role">Video Editor</div>
@@ -654,7 +662,7 @@
       <div class="reviews-grid reveal">
 
         <div class="review-card">
-          <div class="review-avatar"></div>
+          <div class="review-avatar"><img src="images/client-1.jpg" alt="SHAPKA"></div>
           <div class="review-stars">★★★★★</div>
           <div class="review-quote">Good job man!</div>
           <div class="review-author">
@@ -664,7 +672,7 @@
         </div>
 
         <div class="review-card">
-          <div class="review-avatar"></div>
+          <div class="review-avatar"><img src="images/client-2.jpg" alt="TeamSamuraX1"></div>
           <div class="review-stars">★★★★★</div>
           <div class="review-quote">Amazing and talented.</div>
           <div class="review-author">
@@ -674,7 +682,7 @@
         </div>
 
         <div class="review-card">
-          <div class="review-avatar"></div>
+          <div class="review-avatar"><img src="images/client-3.jpg" alt="LINF"></div>
           <div class="review-stars">★★★★★</div>
           <div class="review-quote">He's a pro</div>
           <div class="review-author">
