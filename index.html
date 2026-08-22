@@ -224,11 +224,9 @@
     display:block;
     border-radius:22px;
     overflow:hidden;
-    background:var(--bg-elev);
-    border:1px solid var(--line);
-    transition:transform 0.3s, border-color 0.3s;
+    transition:transform 0.3s;
   }
-  .work-row:hover{ transform:translateY(-4px); border-color:var(--line-strong); }
+  .work-row:hover{ transform:translateY(-4px); }
   .work-thumb{
     display:block;
     width:100%; padding-top:56.25%; overflow:hidden;
@@ -245,10 +243,16 @@
     font-size:13px; text-align:center; width:100%;
   }
   .work-index{
-    position:absolute; top:14px; left:14px;
+    position:absolute; top:14px; left:14px; z-index:2;
     font-size:12px; font-weight:600; color:#fff;
     background:rgba(0,0,0,0.55); backdrop-filter:blur(6px);
     padding:4px 10px; border-radius:100px;
+  }
+  .work-overlay{
+    position:absolute; bottom:14px; left:14px; z-index:2;
+    font-size:11px; font-weight:600; color:#fff;
+    background:rgba(0,0,0,0.55); backdrop-filter:blur(6px);
+    padding:5px 12px; border-radius:100px;
   }
   .work-metric-corner{
     position:absolute; top:14px; right:14px; z-index:2;
@@ -258,18 +262,6 @@
     font-size:11px; font-weight:700; color:#34d17f;
   }
   .corner-spark{ width:36px; height:14px; display:block; }
-  .work-body{ padding:22px 24px 26px; }
-  .work-title{ font-size:clamp(1.2rem, 2vw, 1.55rem); font-weight:700; letter-spacing:-0.01em; }
-  .work-stats{
-    display:flex; gap:20px; margin-top:16px; flex-wrap:wrap;
-  }
-  .work-stat{ display:flex; flex-direction:column; }
-  .work-stat .num{ font-size:1.4rem; font-weight:800; letter-spacing:-0.02em; }
-  .work-stat .lbl{ font-size:11px; color:var(--fg-dim); text-transform:uppercase; letter-spacing:0.04em; margin-top:2px; }
-  .work-meta{
-    display:inline-flex; align-items:center; gap:6px;
-    margin-top:18px; font-size:13px; color:var(--accent); font-weight:500;
-  }
   @media (max-width:800px){
     .works-list{ grid-template-columns:1fr; }
   }
@@ -421,7 +413,7 @@
     <div class="metrics-grid">
       <div>
         <div class="metric-num" data-target="8.4" data-suffix="M+">0</div>
-        <div class="metric-label">Total views across projects</div>
+        <div class="metric-label">Total views across long-form projects</div>
       </div>
       <div>
         <div class="metric-num" data-target="5.9" data-suffix="M">0</div>
@@ -508,14 +500,7 @@
           <span class="work-thumb">
             <span class="work-index">01</span>
             <img src="https://i.ytimg.com/vi/ldcHG-wrD3Y/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://i.ytimg.com/vi/ldcHG-wrD3Y/hqdefault.jpg';" alt="Project 01" loading="lazy">
-          </span>
-          <span class="work-body">
-            <span class="work-title">Long-form edit</span>
-            <span class="work-stats">
-              <span class="work-stat"><span class="num">000K</span><span class="lbl">Views</span></span>
-              <span class="work-stat"><span class="num">0.0K</span><span class="lbl">Likes</span></span>
-            </span>
-            <span class="work-meta">Watch ↗</span>
+            <span class="work-overlay">000K views · 0.0K likes</span>
           </span>
         </a>
 
@@ -523,14 +508,7 @@
           <span class="work-thumb">
             <span class="work-index">02</span>
             <img src="https://i.ytimg.com/vi/GR3TKmIpsmY/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://i.ytimg.com/vi/GR3TKmIpsmY/hqdefault.jpg';" alt="Project 02" loading="lazy">
-          </span>
-          <span class="work-body">
-            <span class="work-title">Long-form edit</span>
-            <span class="work-stats">
-              <span class="work-stat"><span class="num">000K</span><span class="lbl">Views</span></span>
-              <span class="work-stat"><span class="num">0.0K</span><span class="lbl">Likes</span></span>
-            </span>
-            <span class="work-meta">Watch ↗</span>
+            <span class="work-overlay">000K views · 0.0K likes</span>
           </span>
         </a>
 
@@ -538,14 +516,7 @@
           <span class="work-thumb">
             <span class="work-index">03</span>
             <img src="https://i.ytimg.com/vi/-2cp64pYRdQ/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://i.ytimg.com/vi/-2cp64pYRdQ/hqdefault.jpg';" alt="Project 03" loading="lazy">
-          </span>
-          <span class="work-body">
-            <span class="work-title">Long-form edit</span>
-            <span class="work-stats">
-              <span class="work-stat"><span class="num">000K</span><span class="lbl">Views</span></span>
-              <span class="work-stat"><span class="num">0.0K</span><span class="lbl">Likes</span></span>
-            </span>
-            <span class="work-meta">Watch ↗</span>
+            <span class="work-overlay">000K views · 0.0K likes</span>
           </span>
         </a>
 
@@ -553,14 +524,7 @@
           <span class="work-thumb">
             <span class="work-index">04</span>
             <img src="https://i.ytimg.com/vi/lmkVJGTtCeM/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://i.ytimg.com/vi/lmkVJGTtCeM/hqdefault.jpg';" alt="Project 04" loading="lazy">
-          </span>
-          <span class="work-body">
-            <span class="work-title">Long-form edit</span>
-            <span class="work-stats">
-              <span class="work-stat"><span class="num">000K</span><span class="lbl">Views</span></span>
-              <span class="work-stat"><span class="num">0.0K</span><span class="lbl">Likes</span></span>
-            </span>
-            <span class="work-meta">Watch ↗</span>
+            <span class="work-overlay">000K views · 0.0K likes</span>
           </span>
         </a>
 
@@ -568,14 +532,7 @@
           <span class="work-thumb">
             <span class="work-index">05</span>
             <img src="https://i.ytimg.com/vi/e4CujNfc05c/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://i.ytimg.com/vi/e4CujNfc05c/hqdefault.jpg';" alt="Project 05" loading="lazy">
-          </span>
-          <span class="work-body">
-            <span class="work-title">Long-form edit</span>
-            <span class="work-stats">
-              <span class="work-stat"><span class="num">000K</span><span class="lbl">Views</span></span>
-              <span class="work-stat"><span class="num">0.0K</span><span class="lbl">Likes</span></span>
-            </span>
-            <span class="work-meta">Watch ↗</span>
+            <span class="work-overlay">000K views · 0.0K likes</span>
           </span>
         </a>
 
@@ -583,14 +540,7 @@
           <span class="work-thumb">
             <span class="work-index">06</span>
             <img src="https://i.ytimg.com/vi/LJTDMR-X1-g/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://i.ytimg.com/vi/LJTDMR-X1-g/hqdefault.jpg';" alt="Project 06" loading="lazy">
-          </span>
-          <span class="work-body">
-            <span class="work-title">Long-form edit</span>
-            <span class="work-stats">
-              <span class="work-stat"><span class="num">000K</span><span class="lbl">Views</span></span>
-              <span class="work-stat"><span class="num">0.0K</span><span class="lbl">Likes</span></span>
-            </span>
-            <span class="work-meta">Watch ↗</span>
+            <span class="work-overlay">000K views · 0.0K likes</span>
           </span>
         </a>
 
