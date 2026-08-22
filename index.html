@@ -413,14 +413,14 @@
     <div class="metrics-grid">
       <div>
         <div class="metric-num" data-target="8.4" data-suffix="M+">0</div>
-        <div class="metric-label">Total views across long-form projects</div>
+        <div class="metric-label">Total views across Long-form projects</div>
       </div>
       <div>
         <div class="metric-num" data-target="5.9" data-suffix="M">0</div>
         <div class="metric-label">Largest channel reached</div>
       </div>
       <div>
-        <div class="metric-num">420+K</div>
+        <div class="metric-num" data-target="420" data-suffix="K+">0</div>
         <div class="metric-label">Likes across all videos</div>
       </div>
     </div>
@@ -500,7 +500,7 @@
           <span class="work-thumb">
             <span class="work-index">01</span>
             <img src="https://i.ytimg.com/vi/ldcHG-wrD3Y/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://i.ytimg.com/vi/ldcHG-wrD3Y/hqdefault.jpg';" alt="Project 01" loading="lazy">
-            <span class="work-overlay">2.3M views · 57.1K likes</span>
+            <span class="work-overlay">000K views · 0.0K likes</span>
           </span>
         </a>
 
@@ -508,7 +508,7 @@
           <span class="work-thumb">
             <span class="work-index">02</span>
             <img src="https://i.ytimg.com/vi/GR3TKmIpsmY/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://i.ytimg.com/vi/GR3TKmIpsmY/hqdefault.jpg';" alt="Project 02" loading="lazy">
-            <span class="work-overlay">1.1M views · 58K likes</span>
+            <span class="work-overlay">000K views · 0.0K likes</span>
           </span>
         </a>
 
@@ -516,7 +516,7 @@
           <span class="work-thumb">
             <span class="work-index">03</span>
             <img src="https://i.ytimg.com/vi/-2cp64pYRdQ/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://i.ytimg.com/vi/-2cp64pYRdQ/hqdefault.jpg';" alt="Project 03" loading="lazy">
-            <span class="work-overlay">170.3K views · 5.6K likes</span>
+            <span class="work-overlay">000K views · 0.0K likes</span>
           </span>
         </a>
 
@@ -524,7 +524,7 @@
           <span class="work-thumb">
             <span class="work-index">04</span>
             <img src="https://i.ytimg.com/vi/lmkVJGTtCeM/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://i.ytimg.com/vi/lmkVJGTtCeM/hqdefault.jpg';" alt="Project 04" loading="lazy">
-            <span class="work-overlay">117.6K views · 8.4K likes</span>
+            <span class="work-overlay">000K views · 0.0K likes</span>
           </span>
         </a>
 
@@ -532,7 +532,7 @@
           <span class="work-thumb">
             <span class="work-index">05</span>
             <img src="https://i.ytimg.com/vi/e4CujNfc05c/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://i.ytimg.com/vi/e4CujNfc05c/hqdefault.jpg';" alt="Project 05" loading="lazy">
-            <span class="work-overlay">809.2K views · 46K likes</span>
+            <span class="work-overlay">000K views · 0.0K likes</span>
           </span>
         </a>
 
@@ -540,7 +540,7 @@
           <span class="work-thumb">
             <span class="work-index">06</span>
             <img src="https://i.ytimg.com/vi/LJTDMR-X1-g/maxresdefault.jpg" onerror="this.onerror=null;this.src='https://i.ytimg.com/vi/LJTDMR-X1-g/hqdefault.jpg';" alt="Project 06" loading="lazy">
-            <span class="work-overlay">376.7K views · 9K likes</span>
+            <span class="work-overlay">000K views · 0.0K likes</span>
           </span>
         </a>
 
@@ -727,10 +727,11 @@
         const suffix = el.dataset.suffix || '';
         const duration = 1400;
         const startTime = performance.now();
+        const decimals = target < 10 ? 1 : 0;
         function tick(now){
           const progress = Math.min((now - startTime) / duration, 1);
           const eased = 1 - Math.pow(1 - progress, 3);
-          const value = (target * eased).toFixed(1);
+          const value = (target * eased).toFixed(decimals);
           el.textContent = value + suffix;
           if(progress < 1) requestAnimationFrame(tick);
         }
